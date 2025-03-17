@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="templateCar.css">
+</head>
+
+<body>
+    <template id="card-template">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title"></div>
+                <div class="card-text"></div>
+            </div>
+            
+            
+        </div>
+    </template>
+    <div id="card-list"></div>
+
+    <script scr="carData.js">
+        function addCard(title,textBody) {
+        // clone the template
+        const template =
+        document.getElementById("card-template")
+        .content.cloneNode(true);
+        // populate the template
+        template.querySelector('.card-title').innerText =
+        'My Card Title';
+        template.querySelector('.card-text').innerText =
+        'lorem ipsum ble bla';
+        // include the populated template into the page
+        document.querySelector('#card-list')
+        .appendChild(template);
+        }
+        addCard();
+
+        const data = [
+            {name: 'bob', age: 23}, 
+            {name:'alice', age: 39}
+        ]
+
+        data.forEach((person,index) => {
+            addCard(
+                "My card -" + (index + 1),
+                "My name is " + person.name + " and I am " + person.age + " years old"
+            )
+        })
+
+    </script>
+
+
+</body>
+
+
+</html>
+

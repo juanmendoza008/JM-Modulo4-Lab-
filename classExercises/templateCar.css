@@ -1,0 +1,38 @@
+.card {
+
+    padding: 10px;
+  
+    border: black solid 1px;
+  
+    background-color: white;
+  
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  
+}
+  
+.card-title {
+  
+    font-weight: 600;
+  
+    font-size: 3em;
+  
+    padding: 0 0 10px 0;
+  
+}
+  
+.card-description {
+  
+    font-weight: 400;
+  
+    font-size: 2em;
+  
+}
+
+  
+#card-list {
+  
+    display: flex;
+  
+    gap: 5px;
+  
+}
