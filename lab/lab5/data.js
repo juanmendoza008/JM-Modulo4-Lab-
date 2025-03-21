@@ -10,34 +10,44 @@ let news = [
     ];
 
 
-    const newsContainer = document.getElementById('news-container');
-
-    function buildTheNewsCards(newsItem) {
-        if (newsItem) {
-            const newEle = document.createElement('div');
-            newEle.innerText = newsItem.title;
-            newConstainerElement.appendChild(newEle);
-        }
-    
-    }
-
-    // Function to render news data to HTML
-    function generateNews(news) {
-        newsContainer.innerHTML = '';
-
-        news.forEach(item => {
-            const newsItem = document.createElement('div');
-            newsItem.className = 'news-item';
-            newsItem.innerHTML = `
-                <h2>${item.title}</h2>
-                <p>${item.content}</p>
-            `;
-            buildTheNewsCards(newsItem);
-        });
-    }
-
-    // Call the function to render news
-    document.addEventListener('DOMContentLoaded', () => {
-        renderNews(news);
+function getNews() {
+    document.getElementById("card-list").innerText="";
+    news.forEach((item) => {
+        generateNews(item.title, item.content);
     });
+
+}
+
+function generateNews(title, content) {
+    const template = document.getElementById("card-template").content.cloneNode(true);
+    template.querySelector('.card-title').innerText = title;
+    template.querySelector('.card-text').innerText = content;
+    document.querySelector('#card-list').appendChild(template);
+}
+
+getNews();
+    
+
+let newsReload = setInterval(getNews, 5000);
+ 
+console.log(news);
+
+function addNewToList(event) {
+    event.preventDefault();
+    let newTitle = document.getElementById("newsTitle").value;
+    let newContent = document.getElementById("newsContent").value;
+    news.push({id: news.length+1, title: newTitle, content: newContent});
+    console.log(news);
+}
+
+function stopReload() {
+    clearInterval(newsReload);
+}
+
+
+
+
+
+
+
 

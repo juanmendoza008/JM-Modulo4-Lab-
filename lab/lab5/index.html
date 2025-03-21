@@ -1,5 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
+
+<template id="card-template">
+  <div class="card" style="width: 18rem;">
+      <div>
+        <h2 class="card-title"></h2>
+        <p class="card-text"></p>
+      </div>
+  </div>
+</template>
+
+
+
+
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,47 +28,26 @@
   <body>
   
   <div class="jumbotron text-center">
-    <h1>Fake News </h1> 
+    <h1>Fake News</h1> 
     <br>
   </div>
-    
-  <div class="container">
 
-    
-    <div class="row">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-    </div>
-    
+  <div class="container p-3" >
+    <form onsubmit=addNewToList(event)>
+      <input type="text" id="newsTitle" placeholder="News Title">
+      <input type="text" id="newsContent" placeholder="News Content">
+      <button type="submit" class="btn btn-primary">Add news</button>
+    </form>  
 
-    <div class="container"></div>
-        <div class="row" id="card-container">
-            <!-- Cards will be dynamically inserted here by data.js -->
-        </div>
+    <div>
+      <button onclick="stopReload()">Stop Reloading</button>
     </div>
 
-
-
+    <div class="container">
+      <div id="card-list" class="row g-3 p-3"></div>
+    </div>
 
   </div>
-
-
 
 
   <script src="data.js"></script>

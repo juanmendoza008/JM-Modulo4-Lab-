@@ -27,13 +27,8 @@ function addItem(item) {
     .innerText = `rating: ${item.rating.rate}`;
     template.querySelector(".card-price").innerText = `$${item.price}`;
 
-
-
-
   document.querySelector("#post-list").appendChild(template);
 }
-
-
 
 /*
 category : "men's clothing"
@@ -44,3 +39,10 @@ price : 109.95
 rating : {rate: 3.9, count: 120}
 title : "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops"
 */
+
+// axios1
+//   .get('https://fakestoreapi.com/users/1')
+//   .then(response => {
+//     console.log("responseUSer",response.data);
+//     response.name.forEach((item) => addItem(item));
+//   });
